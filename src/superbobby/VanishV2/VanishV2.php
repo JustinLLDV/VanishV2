@@ -166,7 +166,7 @@ class VanishV2 extends PluginBase {
     public function unvanish(Player $player) {
         unset(self::$vanish[array_search($player->getName(), self::$vanish)]);
         self::$online[] = $player;
-        $player->setNameTag(str_replace("[V] ", null, $player->getNameTag()));
+        $player->setNameTag(str_replace("[V] ", "", $player->getNameTag()));
         $player->setSilent(false);
         $player->getXpManager()->setCanAttractXpOrbs(true);
         $this->updateHudPlayerCount();
